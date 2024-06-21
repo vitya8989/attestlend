@@ -196,39 +196,27 @@ if (openPopupBtns.length > 0) {
                 let valid = validatePhone(form);
 
                 if (valid) {
-                    form.reset();
-                    if (!callbackPopup.classList.contains('show')) {
-                        callbackPopup.classList.add('show');
-                        document.body.style.overflow = 'hidden';
-                    }
-                    callbackContents.forEach((content) => {
-                        if (content.dataset.content === 'thanks') {
-                            content.classList.add('active');
-                        } else {
-                            content.classList.remove('active');
-                        }
-                    });
 
-                    // let response = await fetch('form-action.php', {
-                    //     method: 'POST',
-                    //     body: new FormData(form)
-                    // });
-                    // if (response.ok) {
-                    //     form.reset();
-                    //     if (!callbackPopup.classList.contains('show')) {
-                    //         callbackPopup.classList.add('show');
-                    //         document.body.style.overflow = 'hidden';
-                    //     }
-                    //     callbackContents.forEach((content) => {
-                    //         if (content.dataset.content === 'thanks') {
-                    //             content.classList.add('active');
-                    //         } else {
-                    //             content.classList.remove('active');
-                    //         }
-                    //     });
-                    // } else {
-                    //     alert('Произошла ошибка отправки, попробуйте еще раз!');
-                    // }
+                    let response = await fetch('form-action.php', {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
+                    if (response.ok) {
+                        form.reset();
+                        if (!callbackPopup.classList.contains('show')) {
+                            callbackPopup.classList.add('show');
+                            document.body.style.overflow = 'hidden';
+                        }
+                        callbackContents.forEach((content) => {
+                            if (content.dataset.content === 'thanks') {
+                                content.classList.add('active');
+                            } else {
+                                content.classList.remove('active');
+                            }
+                        });
+                    } else {
+                        alert('Произошла ошибка отправки, попробуйте еще раз!');
+                    }
                 }
             });
         });
