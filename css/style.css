@@ -596,6 +596,12 @@ main {
   line-height: 25px;
   color: #666
 }
+.other__item_text p {
+  margin-top: 25px
+}
+.other__item_text p:first-child {
+  margin-top: 0
+}
 .other__item_btn {
   margin-top: 16px
 }
@@ -905,7 +911,9 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%
+  height: 100%;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1)
 }
 .contacts__map iframe {
   position: absolute;
@@ -1538,6 +1546,9 @@ main {
   .other__item_text {
     font-size: 18px;
     line-height: 22px
+  }
+  .other__item_text p {
+    margin-top: 22px
   }
   .how__title {
     font-size: 24px;
