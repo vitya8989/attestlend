@@ -1,0 +1,16 @@
+
+RewriteEngine on
+
+DirectoryIndex lpshop.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^.*$ lpshop.php?q=$0 [L,NC,QSA]
+
+<Files ~ "\.(ini|log)$">
+
+deny from all
+
+</Files>
+
+Options -Indexes
